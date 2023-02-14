@@ -1,4 +1,6 @@
 Versión de Python: 3.10.6
+pip install --user pipenv
+
 
 Paso1: cp .env.example .env
 <br/>
