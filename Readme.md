@@ -15,4 +15,7 @@ Paso2: copiar la API key de OPENAI en el archivo .env
 Paso3: ``` pipenv shell ``` 
 <br/>
 <br/>
+Paso4: ``` pipenv install ``` 
+<br/>
+<br/>
 Paso4: ``` pipenv run openai ``` 
