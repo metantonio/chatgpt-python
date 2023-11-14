@@ -32,8 +32,6 @@ def menuOptions():
     2-. Read a .csv file and run a custom prompting
     3-. Exit
 
-    Script: Antonio Martínez
-    @metantonio
     """
     )
     userOp = int(input("\n Choose an option \n"))
