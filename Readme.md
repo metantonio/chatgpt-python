@@ -5,17 +5,31 @@ pip install --user pipenv
 <a href="https://platform.openai.com/account/api-keys">OpenAI API</a>
 <br/>
 
-Paso1: Hacer una copia del .env.example <br/>
-``` cp .env.example .env ```
+Paso1: Create .env from .env.example <br/>
+```sh 
+cp .env.example .env 
+```
 <br/>
 <br/>
-Paso2: copiar la API key de OPENAI en el archivo .env
+Paso2: Setup your API Key in .env
 <br/>
 <br/>
-Paso3: ``` pipenv shell ``` 
+Paso3:
+
+```sh
+pipenv shell 
+``` 
 <br/>
 <br/>
-Paso4: ``` pipenv install ``` 
+Paso4:
+
+```sh
+pipenv install 
+``` 
 <br/>
 <br/>
-Paso4: ``` pipenv run openai ``` 
+Paso4: 
+
+```sh
+pipenv run openai 
+``` 
