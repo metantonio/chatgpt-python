@@ -31,5 +31,5 @@ pipenv install
 Paso4: 
 
 ```sh
-pipenv run openai 
+pipenv run start 
 ``` 

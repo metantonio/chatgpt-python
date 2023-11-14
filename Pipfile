@@ -14,3 +14,4 @@ python_version = "3.10"
 
 [scripts]
 openai="main.py"
+start="pipenv run python main.py"

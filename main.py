@@ -54,17 +54,15 @@ def menuFunctions(user):
                 with open(csv_file_path, mode='r') as file:
                     # create a reader of the headers
                     csv_reader = csv.DictReader(file)
-                    
+                    #print(csv_reader)
                     # loop every row
                     for row in csv_reader:
-                        # obtain columns with certain header
-                        name = row['name']
-                        edad = row['edad']
+                        # obtain columns with certain header                      
+                        name = row['casinoName']
+                        address = row['address'].replace('\n', '').replace('\r', '').replace('\t', '').replace('  ', '')
                         
-                        # Procesa los datos según sea necesario
-                        print(f"Name: {name}, Edad: {edad}")
-
-
+                        # change if necessary
+                        print(f"Name: {name}, address: {address}")
 
 if __name__ == "__main__":
     
