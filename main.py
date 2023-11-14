@@ -1,17 +1,22 @@
 import os
-import openai
+from openai import OpenAI
 import csv
 import requests
 
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+
+client = OpenAI(
+    # defaults to os.environ.get("OPENAI_API_KEY")
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
 
 # models
 test_model = {"name": "text-davinci-003", "tokens": 2048}
 chatgpt_3 = {"name": "gpt-3.5-turbo", "tokens": 4096}
-chatgpt_4 = {"name": "gpt-4-1106-preview", "tokens": 128000}
+chatgpt_4_turbo = {"name": "gpt-4-1106-preview", "tokens": 128000}
+chatgpt_4 = {"name": "gpt-4", "tokens": 128000}
 
 #Select Model to use:
-model_selected = chatgpt_4
+model_selected = chatgpt_3
 
 #path to .csv files
 csv_directory  = './csv'
@@ -38,8 +43,8 @@ def menuFunctions(user):
     if(user==1):
         prompt = input("\n Write a prompt to ChatGPT\n \n")
 
-        completation = openai.Completion.create(
-            engine=model_selected["name"], prompt=prompt, n=1, max_tokens=model_selected["tokens"]
+        completation = client.chat.completions.create(
+            messages=[{"role":"user", "content":prompt}], model=model_selected["name"]
         )
 
         print(completation.choices[0].text)
