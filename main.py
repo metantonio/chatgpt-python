@@ -55,15 +55,42 @@ def menuFunctions(user):
                 with open(csv_file_path, mode='r') as file:
                     # create a reader of the headers
                     csv_reader = csv.DictReader(file)
-                    #print(csv_reader)
-                    # loop every row
-                    for row in csv_reader:
-                        # obtain columns with certain header                      
-                        name = row['casinoName']
-                        address = row['address'].replace('\n', '').replace('\r', '').replace('\t', '').replace('  ', '')
-                        
-                        # change if necessary
-                        print(f"Name: {name}, address: {address}")
+                    
+                    # name of the columns
+                    existing_columns = csv_reader.fieldnames
+
+                    # add a new column at the end, for the response of chatGPT
+                    new_columns = existing_columns + ['chatgpt']
+
+                    # Crea a new file that will contain the response of server
+                    output_csv_path = os.path.join(csv_directory, f"output_{filename}")
+
+                    with open(output_csv_path, mode='w', newline='') as output_file:
+                        csv_writer = csv.DictWriter(output_file, fieldnames=new_columns)
+                        csv_writer.writeheader()
+
+                        # loop every row
+                        for row in csv_reader:
+                            # obtain columns with certain header                      
+                            name = row['casinoName']
+                            address = row['address'].replace('\n', '').replace('\r', '').replace('\t', '').replace('  ', '')
+                            
+                            prompt = f'With following casino named: {name} with address {address} try to retrieve the information of the restaurants inside of the property. If there is not any restaurante then give me the nearest to it'
+                            # change if necessary
+                            print(prompt)
+                            completation = openai.Completion.create(
+                                engine=model_selected["name"], prompt=prompt, n=1, max_tokens=model_selected["tokens"]
+                            )
+
+                            #print(completation.choices[0].text)
+                            #add the response
+                            row['server_response'] = completation.choices[0].text
+
+                            # write the output file
+                            csv_writer.writerow(row)
+
+                    print("Process ended")
+
 
 if __name__ == "__main__":
     
