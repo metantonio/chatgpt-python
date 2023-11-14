@@ -10,6 +10,21 @@ chatgpt_4 = "gpt-4-1106-preview"
 
 
 if __name__ == '__main__':
+    print("""\n Main Menu
+
+    Menú:
+
+    
+    1-. Prompting from console
+    2-. Read a .csv file and run a custom prompting
+    3-. Exit
+
+    Script: Antonio Martínez
+    @metantonio
+    """)
+    userOp1=int(input("\n Choose an option \n"))
+
+
     while True:
         prompt = input("\n Introduce el prompt a chatgpt-3 o 'exit' para salir\n \n")
 
