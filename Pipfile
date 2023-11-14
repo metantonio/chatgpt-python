@@ -13,4 +13,4 @@ python-dotenv = "*"
 python_version = "3.10"
 
 [scripts]
-openai="chatgpt.py"
+openai="main.py"
