@@ -45,3 +45,7 @@ Step 5-B (run globally):
 ```sh
 python main.py
 ``` 
+
+## Preview
+<img src="./img/menu.png" width="800px"></img>
+
