@@ -14,7 +14,7 @@ cp .env.example .env
 Step 2: Setup your API Key in .env
 <br/>
 <br/>
-Paso3:
+Step 3:
 
 ```sh
 pipenv shell 
