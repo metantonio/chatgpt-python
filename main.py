@@ -28,7 +28,7 @@ if __name__ == "__main__":
     )
     userOp1 = int(input("\n Choose an option \n"))
 
-    while userOp1 < 6:
+    while userOp1 < 3:
         prompt = input("\n Introduce el prompt a chatgpt-3 o 'exit' para salir\n \n")
 
         if prompt == "exit":
@@ -41,3 +41,7 @@ if __name__ == "__main__":
         print(completation.choices[0].text)
 
         userOp1 = int(input("\n Choose an option \n"))
+
+        if userOp1>=3:
+            print('Closing Script')
+            break
