@@ -83,10 +83,10 @@ def menuFunctions(user):
                             prompt = f'With following casino named: {name} with address {address} try to retrieve the information of the restaurants inside of the property. If there is not any restaurante then give me the nearest to it'
                             # change if necessary
                             print(prompt)
-                            completation = openai.Completion.create(
-                                engine=model_selected["name"], prompt=prompt, n=1, max_tokens=model_selected["tokens"]
+                            completation = client.chat.completions.create(
+                                messages=[{"role":"user", "content":prompt}], model=model_selected["name"]
                             )
-
+                            
                             #print(completation.choices[0].text)
                             #add the response
                             row['server_response'] = completation.choices[0].text
